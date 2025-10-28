@@ -1,0 +1,10 @@
+module adder_subtractor(
+	input logic [3:0] operand_A,
+	input logic [3:0] operand_B,
+	input logic subtract_mode, // 0 сложение, 1 - вычитание
+	output logic [4:0] result
+);
+	
+	assign result = operand_A + (operand_B ^ {4{subtract_mode}}) + subtract_mode;
+
+endmodule

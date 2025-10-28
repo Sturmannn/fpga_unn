@@ -1,0 +1,33 @@
+module tb_adder_subtractor;
+
+	logic [3:0] sw_1;
+	logic [7:4] sw_2;
+	logic [4:0] led_1;
+	
+	adder UUT(
+		.operand_A(sw_1),
+		.operand_B(sw_2),
+		.result(led_1)
+	);
+	
+	initial begin
+		$display("-----------------------------------------");
+		sw_1 = 4'b0001;
+		sw_2 = 4'b0011;
+		
+		#100;
+		
+		sw_1 = 4'b0000;
+		sw_2 = 4'b1111;
+	
+		#100;
+		
+		sw_1 = 4'b0111;
+		sw_2 = 4'b0111;
+		
+		#100;
+		
+		$display("-----------------------------------------");
+				
+	end
+endmodule
